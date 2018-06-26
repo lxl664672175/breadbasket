@@ -1,0 +1,125 @@
+/*   .sdgsd{
+    width: 750px;
+    height: 500px;
+    overflow: hidden;
+   }*/
+/* 公司历史 */
+.course_bgc{
+    position: relative;
+}
+.history{
+    width: 90%;
+    height: 500px;
+    overflow: hidden;
+   top: 50%;
+   margin-top: -250px;
+    position: absolute;
+    left: 0%;
+    margin-left: 0px;
+    
+}
+.history_img{
+    width: 90%;
+    height: 479px;
+    margin-left: 75px;
+    overflow: hidden;
+}
+.roller{
+    border-bottom: 2px solid #cc5e17;
+    width: 90%;
+    height: 250px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -45%;
+    
+}
+.roller_con{
+    height: 200px;
+    width: 190%;
+    position: absolute;
+    left: 50%;
+    margin-left: -45%;
+    top: 50%;
+    margin-top: -100px;
+    overflow: hidden;
+    
+}
+.roller_con_l{
+    position: absolute;
+    top: 50%;
+   
+    left: 2%;
+    margin-top: -26px;
+}
+.roller_con_r{
+    position: absolute;
+    top: 50%;
+    z-index: 199999;
+   
+    right: 2%;
+    margin-top: -26px;
+}
+img{
+    background-size: 100% 100%;
+
+}
+.roller_con_c{
+    height: 200px;
+    width: 93%;
+    position: absolute;
+    left: 47%;
+    
+    margin-left: -46.5%;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 100;
+    
+  transition: all 1s;
+}
+.roller_con_c.left{
+ left: 0%;
+
+}
+.roller_con_c span{
+    position: absolute;
+    height: 122px;
+    opacity: 0;
+}
+.history_lo p{
+    color: #5a281b;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.history_lo div{
+    position: absolute;
+}
+.log{
+    font-size: 20px;
+    color: #cc5e17;
+    font-weight: 600;
+}
+.loge{
+    font-size: 16px;
+    color: #cc5e17;
+    font-weight: 600;
+}
+.history_lo{
+    /* width: 100%; */
+    height: 485px;
+    position: absolute;
+    /* opacity: 0; */
+    left: 0px;
+    transition: all 1s;
+}
+.history_lo.riht{
+    left: -100%;
+    
+    opacity: 1;
+   
+   }
+   .sdgsd{
+    width: 750px;
+    height: 500px;
+    overflow: hidden;
+   }

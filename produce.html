@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>台华商城</title>
+    <link href="css/lib/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <script src="js/lib/jquery-1.11.1.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <link href="css/lib/mobiscroll.custom-2.16.1.min.css" rel="stylesheet" type="text/css" />
+
+<script src="js/lib/mobiscroll.custom-2.16.1.min.js" type="text/javascript"></script>
+
+    <style>
+    .box2 {
+        margin-top: 300px;
+    }
+    </style>
+</head>
+
+<body class="container">
+    <script src="js/header.js"></script>
+    <!-- 内容部分开始 -->
+    <div class="box2">
+        <h1>我是第2页的内容</h1>
+
+
+
+
+ <div id="current-area">
+        <div class="mbase-menu-title">现所在地</div>
+        <div class="mbase-menu-txt">未设置</div>
+        <div class="clear"></div>
+    </div>
+    <ul id="current-area-list" style="display: none">
+        <li>
+            <div data-value="2">北京</div>
+            <ul>
+                <li>
+                    <span data-value="36">东城</span>
+                    <ul>
+                        <li data-value="55">西城</li>
+                        <li data-value="56">崇文</li>
+                    </ul>
+                </li>
+                <li>
+                    <span data-value="37">南城</span>
+                    <ul>
+                        <li data-value="57">东海</li>
+                        <li data-value="58">南海</li>
+                    </ul>
+                </li>
+                <li>
+                    <span data-value="38">北城</span>
+                    <ul>
+                        <li data-value="59">杭州</li>
+                        <li data-value="60">西安</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div data-value="3">湖北</div>
+            <ul>
+                <li>
+                    <span data-value="39">武汉</span>
+                    <ul>
+                        <li data-value="61">汉口</li>
+                        <li data-value="62">武昌</li>
+                    </ul>
+                </li>
+                <li>
+                    <span data-value="40">随州</span>
+                    <ul>
+                        <li data-value="63">广水</li>
+                        <li data-value="64">孝感</li>
+                        <li data-value="67">打打</li>
+                    </ul>
+                </li>
+                <li>
+                    <span data-value="41">襄阳</span>
+                    <ul>
+                        <li data-value="65">南漳</li>
+                        <li data-value="66">宜城</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>        
+    </ul>
+    
+
+
+
+
+    </div>
+    <!-- 内容部分结束 -->
+    <script src="js/footer.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+<script type="text/javascript">
+    $("#current-area").click(function() {
+        var that = this;
+        $("#current-area-list").mobiscroll().treelist({
+            theme: 'ios', 
+            lang: "en",
+            display: 'bottom',
+            animate:'slideup',
+            //inputClass: 'tmp',
+           // headerText: '请您选择',
+            onSelect: function(valueText, inst) {
+                var n = inst.getValue();
+                var $list=$(this).children("li").eq(n[0]);
+                var m1_id = $list.find("div").attr("data-value");
+                var m2_id = $list.find("span").eq(n[1]).attr("data-value");
+                var m3_id = $list.find("span").eq(n[1]).next().find('li').eq(n[2]).attr("data-value");
+                var value =  valueText.split('/');             
+                console.log(valueText,m1_id,value[0],m2_id,value[1],m3_id,value[2]);
+              
+                /*$.post("inc/person.org.php", {apart: "resume_base", current_area: m1+m2, current_areaPID: m1_id, current_areaCID: m2_id}, function (result) { 
+                    if (result == 'ok') { 
+                        $(that).find(".mbase-menu-txt").html(m1+m2); 
+                    } 
+                    else { 
+                        error('网络繁忙，请您稍后再试'); 
+                    } 
+                });*/
+                //后端处理部分
+            },
+            formatResult: function (data) {
+                //自定义输出内容
+                var $div = $("#current-area-list").children("li").eq(data[0]);   
+                return $div.find('div').text() + '/' + $div.find('span').eq(data[1]).text()+ '/'+ $div.find('span').eq(data[1]).next().find('li').eq(data[2]).text();
+            } 
+        });
+        $("input[id^=current-area-list]").focus();
+    });
+    </script>
